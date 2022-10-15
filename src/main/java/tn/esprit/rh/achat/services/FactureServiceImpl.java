@@ -43,19 +43,13 @@ public class FactureServiceImpl implements IFactureService {
 		return factureRepository.save(f);
 	}
 
-	/*
-	 * calculer les montants remise et le montant total d'un détail facture
-	 * ainsi que les montants d'une facture
-	 */
-	
+
 	@Override
 	public void cancelFacture(Long factureId) {
-		// Méthode 01
-		
+
 		Facture facture = factureRepository.findById(factureId).orElse(new Facture());
 		facture.setArchivee(true);
 		factureRepository.save(facture);
-		//Méthode 02 (Avec JPQL)
 		factureRepository.updateFacture(factureId);
 	}
 
