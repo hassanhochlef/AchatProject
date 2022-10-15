@@ -17,7 +17,7 @@ public class StockRestController {
 
 	@Autowired
 	IStockService stockService;
-s
+
 	@GetMapping("/retrieve-all-stocks")
 	@ResponseBody
 	public List<Stock> getStocks() {
