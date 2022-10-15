@@ -35,7 +35,7 @@ public class CategorieProduitController {
 	@PostMapping("/add-categorieProduit")
 	@ResponseBody
 	public CategorieProduit addCategorieProduit(@RequestBody CategorieProduit cp) {
-		return categorieProduitService.addCategorieProduit(cp);
+		return categorieProduitService.addorUpdateCategorieProduit(cp);
 		
 	}
 
@@ -50,7 +50,7 @@ public class CategorieProduitController {
 	@PutMapping("/modify-categorieProduit")
 	@ResponseBody
 	public CategorieProduit modifyCategorieProduit(@RequestBody CategorieProduit categorieProduit) {
-		return categorieProduitService.updateCategorieProduit(categorieProduit);
+		return categorieProduitService.addorUpdateCategorieProduit(categorieProduit);
 	}
 
 	
