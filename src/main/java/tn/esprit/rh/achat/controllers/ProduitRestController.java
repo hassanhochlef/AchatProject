@@ -3,7 +3,8 @@ package tn.esprit.rh.achat.controllers;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.rh.achat.entities.Produit;
+
+import tn.esprit.rh.achat.controllers.dto.ProduitDTO;
 import tn.esprit.rh.achat.services.IProduitService;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class ProduitRestController {
 
 	@GetMapping("/retrieve-all-produits")
 	@ResponseBody
-	public List<Produit> getProduits() {
+	public List<ProduitDTO> getProduits() {
 		return produitService.retrieveAllProduits();
 		
 	}
@@ -28,14 +29,14 @@ public class ProduitRestController {
 
 	@GetMapping("/retrieve-produit/{produit-id}")
 	@ResponseBody
-	public Produit retrieveRayon(@PathVariable("produit-id") Long produitId) {
+	public ProduitDTO retrieveRayon(@PathVariable("produit-id") Long produitId) {
 		return produitService.retrieveProduit(produitId);
 	}
 
 	
 	@PostMapping("/add-produit")
 	@ResponseBody
-	public Produit addProduit(@RequestBody Produit p) {
+	public ProduitDTO addProduit(@RequestBody ProduitDTO p) {
 		return  produitService.addProduit(p);
 	}
 
@@ -49,7 +50,7 @@ public class ProduitRestController {
 	
 	@PutMapping("/modify-produit")
 	@ResponseBody
-	public Produit modifyProduit(@RequestBody Produit p) {
+	public ProduitDTO modifyProduit(@RequestBody ProduitDTO p) {
 		return produitService.updateProduit(p);
 	}
 

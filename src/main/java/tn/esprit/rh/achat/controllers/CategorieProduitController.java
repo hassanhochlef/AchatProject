@@ -1,8 +1,11 @@
+
 package tn.esprit.rh.achat.controllers;
 
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import tn.esprit.rh.achat.controllers.dto.CategorieProduitDTO;
 import tn.esprit.rh.achat.entities.CategorieProduit;
 import tn.esprit.rh.achat.services.ICategorieProduitService;
 
@@ -18,20 +21,20 @@ public class CategorieProduitController {
 
 	@GetMapping("/retrieve-all-categorieProduit")
 	@ResponseBody
-	public List<CategorieProduit> getCategorieProduit() {
+	public List<CategorieProduitDTO> getCategorieProduit() {
 		return categorieProduitService.retrieveAllCategorieProduits();
 		
 	}
 
 	@GetMapping("/retrieve-categorieProduit/{categorieProduit-id}")
 	@ResponseBody
-	public CategorieProduit retrieveCategorieProduit(@PathVariable("categorieProduit-id") Long categorieProduitId) {
+	public CategorieProduitDTO retrieveCategorieProduit(@PathVariable("categorieProduit-id") Long categorieProduitId) {
 		return categorieProduitService.retrieveCategorieProduit(categorieProduitId);
 	}
 
 	@PostMapping("/add-categorieProduit")
 	@ResponseBody
-	public CategorieProduit addCategorieProduit(@RequestBody CategorieProduit cp) {
+	public CategorieProduitDTO addCategorieProduit(@RequestBody CategorieProduitDTO cp) {
 		return categorieProduitService.addorUpdateCategorieProduit(cp);
 		
 	}
@@ -45,7 +48,7 @@ public class CategorieProduitController {
 
 	@PutMapping("/modify-categorieProduit")
 	@ResponseBody
-	public CategorieProduit modifyCategorieProduit(@RequestBody CategorieProduit categorieProduit) {
+	public CategorieProduitDTO modifyCategorieProduit(@RequestBody CategorieProduitDTO categorieProduit) {
 		return categorieProduitService.addorUpdateCategorieProduit(categorieProduit);
 	}
 

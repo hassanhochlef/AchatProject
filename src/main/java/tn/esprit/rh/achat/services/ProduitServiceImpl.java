@@ -3,6 +3,8 @@ package tn.esprit.rh.achat.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import tn.esprit.rh.achat.controllers.dto.ProduitDTO;
 import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.entities.Stock;
 import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
@@ -24,16 +26,16 @@ public class ProduitServiceImpl implements IProduitService {
 	CategorieProduitRepository categorieProduitRepository;
 
 	@Override
-	public List<Produit> retrieveAllProduits() {
-		List<Produit> produits =  produitRepository.findAll();
-		for (Produit produit : produits) {
+	public List<ProduitDTO> retrieveAllProduits() {
+		List<ProduitDTO> produits =  produitRepository.findAll();
+		for (ProduitDTO produit : produits) {
 			log.info(" Produit : " + produit);
 		}
 		return produits;
 	}
 
 	@Transactional
-	public Produit addProduit(Produit p) {
+	public ProduitDTO addProduit(ProduitDTO p) {
 		produitRepository.save(p);
 		return p;
 	}
@@ -46,23 +48,22 @@ public class ProduitServiceImpl implements IProduitService {
 	}
 
 	@Override
-	public Produit updateProduit(Produit p) {
+	public ProduitDTO updateProduit(ProduitDTO p) {
 		return produitRepository.save(p);
 	}
 
 	@Override
-	public Produit retrieveProduit(Long produitId) {
-		Produit produit = produitRepository.findById(produitId).orElse(null);
+	public ProduitDTO retrieveProduit(Long produitId) {
+		ProduitDTO produit = produitRepository.findById(produitId).orElse(null);
 		log.info("produit :" + produit);
 		return produit;
 	}
 
 	@Override
 	public void assignProduitToStock(Long idProduit, Long idStock) {
-		Produit produit = produitRepository.findById(idProduit).orElse(null);
-		Stock stock = stockRepository.findById(idStock).orElse(null);
+		ProduitDTO produit = produitRepository.findById(idProduit).orElse(null);
 		if(produit != null) {
-		produit.setStock(stock);
+		produit.setStockId(idStock);
 		produitRepository.save(produit);
 		}
 
