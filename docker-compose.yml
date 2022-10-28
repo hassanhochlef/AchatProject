@@ -1,25 +1,22 @@
-version: "2"
-
 services:
- Sonarqube:
+ sonarqube:
+
   image: sonarqube:8.9.7-community
   ports:
-   - "9000:9000"
-   - "9092:9092"
+    - "9000:9000"
+    - "9092:9092"
   volumes:
-   - 'sonarQube_data:/opt/SonarQube/data'
-   - 'sonarQube_extensions:/opt/SonarQube/extensions'
-   - 'sonarQube_logs:/opt/SonarQube/logs'
-  
+    - 'SonarQube_data:/opt/SonarQube/data'
+    - 'SonarQube_extensions:/opt/SonarQube/extensions'
+    - 'SonarQube_logs:/opt/SonarQube/logs'
  nexus:
   image: sonatype/nexus3
   ports:
-   - "8081:8081"
+    - "8081:8081"
   volumes:
-   - "nexus-data:/sonatype-work"
-
-volumes
- sonarQube_data:
- sonarQube_extensions:
- sonarQube_logs:
- nexus-data:
+    - "nexus-data:/nexus-data"
+volumes:
+  SonarQube_data:
+  SonarQube_extensions:
+  SonarQube_logs:
+  nexus-data:
