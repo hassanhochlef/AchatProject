@@ -7,7 +7,7 @@ import tn.esprit.rh.achat.controllers.dto.ProduitDTO;
 import tn.esprit.rh.achat.entities.Produit;
 
 @Repository
-public interface ProduitRepository extends JpaRepository<ProduitDTO, Long> {
+public interface ProduitRepository extends JpaRepository<Produit, Long> {
 
 	
 	

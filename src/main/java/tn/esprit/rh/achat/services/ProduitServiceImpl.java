@@ -1,9 +1,12 @@
 package tn.esprit.rh.achat.services;
 
 import lombok.extern.slf4j.Slf4j;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tn.esprit.rh.achat.controllers.converter.ProduitConverter;
 import tn.esprit.rh.achat.controllers.dto.ProduitDTO;
 import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.entities.Stock;
@@ -17,7 +20,10 @@ import java.util.List;
 @Service
 @Slf4j
 public class ProduitServiceImpl implements IProduitService {
-
+    @Autowired
+    ModelMapper modelMapper;
+    @Autowired
+    ProduitConverter produitConverter;
 	@Autowired
 	ProduitRepository produitRepository;
 	@Autowired
@@ -26,9 +32,9 @@ public class ProduitServiceImpl implements IProduitService {
 	CategorieProduitRepository categorieProduitRepository;
 
 	@Override
-	public List<ProduitDTO> retrieveAllProduits() {
-		List<ProduitDTO> produits =  produitRepository.findAll();
-		for (ProduitDTO produit : produits) {
+	public List<Produit> retrieveAllProduits() {
+		List<Produit> produits =  produitRepository.findAll();
+		for (Produit produit : produits) {
 			log.info(" Produit : " + produit);
 		}
 		return produits;
@@ -36,7 +42,8 @@ public class ProduitServiceImpl implements IProduitService {
 
 	@Transactional
 	public ProduitDTO addProduit(ProduitDTO p) {
-		produitRepository.save(p);
+		Produit pe = produitConverter.convertDtoToEntity(p);
+		produitRepository.save(pe);
 		return p;
 	}
 
@@ -49,21 +56,25 @@ public class ProduitServiceImpl implements IProduitService {
 
 	@Override
 	public ProduitDTO updateProduit(ProduitDTO p) {
-		return produitRepository.save(p);
+		Produit pe = produitConverter.convertDtoToEntity(p);
+		pe = produitRepository.save(pe);
+		return p;
 	}
 
 	@Override
 	public ProduitDTO retrieveProduit(Long produitId) {
-		ProduitDTO produit = produitRepository.findById(produitId).orElse(null);
+		Produit produit = produitRepository.findById(produitId).orElse(null);
+		ProduitDTO proDto = produitConverter.convertEntityToDto(produit);
 		log.info("produit :" + produit);
-		return produit;
+		return proDto;
 	}
 
 	@Override
 	public void assignProduitToStock(Long idProduit, Long idStock) {
-		ProduitDTO produit = produitRepository.findById(idProduit).orElse(null);
+		Produit produit = produitRepository.findById(idProduit).orElse(null);
 		if(produit != null) {
-		produit.setStockId(idStock);
+			ProduitDTO pr = produitConverter.convertEntityToDto(produit);
+		pr.setStockId(idStock);
 		produitRepository.save(produit);
 		}
 

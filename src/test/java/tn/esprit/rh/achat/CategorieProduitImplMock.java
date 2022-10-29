@@ -17,12 +17,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import tn.esprit.rh.achat.controllers.converter.CategorieProduitConverter;
 import tn.esprit.rh.achat.controllers.dto.CategorieProduitDTO;
 import tn.esprit.rh.achat.entities.CategorieProduit;
 import tn.esprit.rh.achat.entities.Produit;
@@ -37,12 +39,15 @@ class CategorieProduitImplMock {
 CategorieProduitRepository categorieProduitRepository;
 @InjectMocks
 CategorieProduitServiceImpl ctagorieProduitService;
-
+@Autowired
+CategorieProduitConverter categorieProduitConverter;
+@Autowired
+ModelMapper modelMapper;
 
 @Test
 void TestAddCategorieProduit() {
 	Set<Produit> prods = new HashSet<Produit>();
-	CategorieProduitDTO cp = new CategorieProduitDTO((long) 2,"codeCategorie","libelle",prods);
+	CategorieProduit cp = new CategorieProduit((long) 2,"codeCategorie","libelle",prods);
 	CategorieProduit c = new CategorieProduit((long)1,"a","b", null);
 	lenient().when(categorieProduitRepository.save(Mockito.any(CategorieProduit.class)))
 	.thenReturn(c);
@@ -51,8 +56,9 @@ void TestAddCategorieProduit() {
 @Test
 void TestAddCategorieProduit1() {
 	Set<Produit> prods = new HashSet<Produit>();
-	CategorieProduitDTO cp = new CategorieProduitDTO((long) 2,"codeCategorie","libelle",prods);
-ctagorieProduitService.addorUpdateCategorieProduit(cp);
+	CategorieProduit cp = new CategorieProduit((long) 2,"codeCategorie","libelle",prods);
+	CategorieProduitDTO cpD = categorieProduitConverter.convertEntityToDto(cp);
+ctagorieProduitService.addorUpdateCategorieProduit(cpD);
 Assertions.assertNotNull(cp);
 }
 }

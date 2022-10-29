@@ -15,4 +15,5 @@ public class CategorieProduitDTO {
 	private String codeCategorie;
 	private String libelleCategorie;
 	private Set<Produit> produits;
+	
 }

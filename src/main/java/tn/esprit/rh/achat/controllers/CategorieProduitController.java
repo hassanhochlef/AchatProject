@@ -21,7 +21,7 @@ public class CategorieProduitController {
 
 	@GetMapping("/retrieve-all-categorieProduit")
 	@ResponseBody
-	public List<CategorieProduitDTO> getCategorieProduit() {
+	public List<CategorieProduit> getCategorieProduit() {
 		return categorieProduitService.retrieveAllCategorieProduits();
 		
 	}

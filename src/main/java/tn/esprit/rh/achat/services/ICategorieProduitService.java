@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ICategorieProduitService {
 
-	List<CategorieProduitDTO> retrieveAllCategorieProduits();
+	List<CategorieProduit> retrieveAllCategorieProduits();
 
 	CategorieProduitDTO addorUpdateCategorieProduit(CategorieProduitDTO cp);
 

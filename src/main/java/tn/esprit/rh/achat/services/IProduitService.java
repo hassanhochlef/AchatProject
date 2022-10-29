@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IProduitService {
 
-	List<ProduitDTO> retrieveAllProduits();
+	List<Produit> retrieveAllProduits();
 
 	ProduitDTO addProduit(ProduitDTO p);
 
