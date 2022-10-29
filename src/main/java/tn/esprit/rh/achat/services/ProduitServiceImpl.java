@@ -20,8 +20,7 @@ import java.util.List;
 @Service
 @Slf4j
 public class ProduitServiceImpl implements IProduitService {
-    @Autowired
-    ModelMapper modelMapper;
+
     @Autowired
     ProduitConverter produitConverter;
 	@Autowired

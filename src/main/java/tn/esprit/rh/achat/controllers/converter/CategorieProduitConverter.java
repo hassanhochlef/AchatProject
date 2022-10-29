@@ -13,7 +13,6 @@ public CategorieProduitDTO convertEntityToDto(CategorieProduit categorieProduit)
 }
 public CategorieProduit convertDtoToEntity(CategorieProduitDTO categorieProduitDto) {
 	ModelMapper modelMapper = new ModelMapper();
-	CategorieProduit categorieProduit = modelMapper.map(categorieProduitDto, CategorieProduit.class);
-	return categorieProduit;
+	return modelMapper.map(categorieProduitDto, CategorieProduit.class);
 }
 }

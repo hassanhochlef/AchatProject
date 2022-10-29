@@ -1,6 +1,6 @@
 package tn.esprit.rh.achat.services;
 
-import org.modelmapper.ModelMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +14,7 @@ import java.util.List;
 @Service
 public class CategorieProduitServiceImpl implements ICategorieProduitService {
 
-	@Autowired
-	ModelMapper modelMapper;
+	
 	@Autowired
 	CategorieProduitConverter categorieProduitConverter;
 	@Autowired
