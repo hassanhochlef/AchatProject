@@ -56,7 +56,7 @@ public class ProduitServiceImpl implements IProduitService {
 	@Override
 	public ProduitDTO updateProduit(ProduitDTO p) {
 		Produit pe = produitConverter.convertDtoToEntity(p);
-		pe = produitRepository.save(pe);
+		produitRepository.save(pe);
 		return p;
 	}
 
