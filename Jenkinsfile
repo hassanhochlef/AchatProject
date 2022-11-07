@@ -1,7 +1,7 @@
 pipeline {
     agent any
  environment {
-        DOCKERHUB_CREDENTIALS = credentials('tokendokcerhub')
+        DOCKERHUB_CREDENTIALS = credentials('tockendockerhub')
     }
     stages {
        stage("git"){
