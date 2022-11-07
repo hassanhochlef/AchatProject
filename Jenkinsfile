@@ -1,8 +1,8 @@
 pipeline {
     agent any
-// environment {
-       // DOCKERHUB_CREDENTIALS = credentials('tokendokcerhub')
-   // }
+ environment {
+        DOCKERHUB_CREDENTIALS = credentials('tokendokcerhub')
+    }
     stages {
        stage("git"){
             steps {
@@ -11,14 +11,14 @@ pipeline {
          
             }
         }
-        // stage('Running Sonar & Nexus services') {
-          //   steps {
-             //  sh 'docker-compose up -d'
-             //   sh 'sleep 60'
+         stage('Running Sonar & Nexus services') {
+             steps {
+               sh 'docker-compose up -d'
                
-          //  }
+               
+            }
             
-      //  }
+        }
         
          stage("Cleaning project") {
             steps {
