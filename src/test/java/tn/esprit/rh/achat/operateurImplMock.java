@@ -11,6 +11,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ import tn.esprit.rh.achat.services.OperateurServiceImpl;
 @TestMethodOrder(OrderAnnotation.class)
 @ExtendWith(MockitoExtension.class)
 public class operateurImplMock {
-	@Autowired
+	@Mock
 	OperateurRepository or;
 	@InjectMocks
 	OperateurServiceImpl os;
