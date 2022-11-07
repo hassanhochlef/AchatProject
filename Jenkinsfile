@@ -2,6 +2,8 @@ pipeline {
     agent any
  environment {
         DOCKERHUB_CREDENTIALS = credentials('tockendockerhub')
+     DOCKERHUB_CREDENTIALS_USR = "achrefbenhadjyahia"
+        DOCKERHUB_CREDENTIALS_PSW  = "A53b335809*"
     }
     stages {
        stage("git"){
@@ -53,7 +55,15 @@ pipeline {
                 sh ('./mvnw clean package -Dmaven.test.skip=true')
             }
         }
-      
+        
+        
+      stage('push docker hub') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW'
+                 sh 'docker push docker.io/achrefbenhadjyahia/achraftest'
+   
+            }
+        }
         
      
         
