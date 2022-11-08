@@ -82,7 +82,7 @@ pipeline {
                             nexusArtifactUploader(
                                 nexusVersion: 'nexus3',
                                 protocol: 'http',
-                                nexusUrl: 'http://192.168.1.5:8081/',
+                                nexusUrl: 'http://172.20.10.3:8081/',
                                 groupId: 'pom.tn.esprit.rh',
                                 version: 'pom.1.0',
                                 repository: 'Achat-repository',
