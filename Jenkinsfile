@@ -67,7 +67,44 @@ pipeline {
         
      
         
-       
+        stage ('Nexus') {
+            steps {
+                    script {
+                        pom = readMavenPom file: "pom.xml";
+                        filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
+                        artifactPath = filesByGlob[0].path;
+                        //artifactExists = filesExists artifactPath;
+                        //if(artifactExists){
+                            nexusArtifactUploader(
+                                nexusVersion: 'nexus3',
+                                protocol: 'http',
+                                nexusUrl: 'http://192.168.1.5:8081/',
+                                groupId: 'pom.tn.esprit.rh',
+                                version: 'pom.1.0',
+                                repository: 'Achat-repository',
+                                credentialsId: 'NEXUS_CRED',
+                                artifacts: [
+                                    [artifactId: 'pom.achat',
+                                     classifier: '',
+                                     file: artifactPath,
+                                     type: pom.packaging
+                                        ],
+                                        [artifactId: 'pom.achat',
+                                     classifier: '',
+                                     file: "pom.xml",
+                                     type: "pom"
+                                        ]
+                                    ]
+
+                                );
+                       // }
+                        //else {
+                         //   echo "ok"
+                       // }stage("Nexus & Sonar services") {
+
+                }
+            }
+        }
        
     }
     
