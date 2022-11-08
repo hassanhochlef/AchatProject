@@ -65,7 +65,11 @@ pipeline {
             }
         }
         
-     
+      stage('DOCKER COMPOSE') {
+                        steps {
+                                    sh 'docker-compose up -d --build'
+                        }
+        }
         
         stage ('Nexus') {
             steps {
