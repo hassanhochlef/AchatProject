@@ -24,7 +24,7 @@ public class SecteurServiceImplTest {
 
     @Test
     public void testAddSecteurActivite() throws ParseException {
-        SecteurActivite s = new SecteurActivite("test","test");
+        SecteurActivite s = new SecteurActivite(null,"test","test",null);
         SecteurActivite secteurActivite = secteurActiviteService.addUpdateSecteurActivite(s);
         System.out.print("secteurActivite "+secteurActivite);
         assertNotNull(secteurActivite.getIdSecteurActivite());
@@ -36,7 +36,7 @@ public class SecteurServiceImplTest {
 
     @Test
     public void testDeleteSecteurActivite() throws ParseException {
-        SecteurActivite s = new SecteurActivite("test", "test");
+        SecteurActivite s = new SecteurActivite(null,"test","test",null);
         SecteurActivite  secteurActivite =secteurActiviteService.addUpdateSecteurActivite(s);
         secteurActiviteService.deleteSecteurActivite( secteurActivite.getIdSecteurActivite());
         assertNull(secteurActiviteService.retrieveSecteurActivite(secteurActivite.getIdSecteurActivite()));
@@ -48,7 +48,8 @@ public class SecteurServiceImplTest {
     public void testRetrieveAllSecteurs() throws ParseException {
         List<SecteurActivite> secteurActivites = secteurActiviteService.retrieveAllSecteurActivite();
         int expected =secteurActivites.size();
-        SecteurActivite s = new SecteurActivite("test", "test");
+        SecteurActivite s = new SecteurActivite(null,"test","test",null);
+
         SecteurActivite secteurActivite= secteurActiviteService.addUpdateSecteurActivite(s);
         assertEquals(expected + 1, secteurActiviteService.retrieveAllSecteurActivite().size());
         secteurActiviteService.deleteSecteurActivite(secteurActivite.getIdSecteurActivite());
