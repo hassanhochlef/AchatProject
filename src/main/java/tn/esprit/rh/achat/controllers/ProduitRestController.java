@@ -39,8 +39,8 @@ public class ProduitRestController {
 	
 	@PostMapping("/add-produit")
 	@ResponseBody
-	public ProduitDTO addProduit(@RequestBody ProduitDTO NewProduitDTO) {
-		return  produitService.addProduit(NewProduitDTO);
+	public ProduitDTO addProduit(@RequestBody ProduitDTO pDto) {
+		return  produitService.addProduit(pDto);
 	}
 
 	
@@ -53,8 +53,8 @@ public class ProduitRestController {
 	
 	@PutMapping("/modify-produit")
 	@ResponseBody
-	public ProduitDTO modifyProduit(@RequestBody ProduitDTO NewProduitDTO) {
-		return produitService.updateProduit(NewProduitDTO);
+	public ProduitDTO modifyProduit(@RequestBody ProduitDTO pDto) {
+		return produitService.updateProduit(pDto);
 	}
 
 	@PutMapping(value = "/assignProduitToStock/{idProduit}/{idStock}")
