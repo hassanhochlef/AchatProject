@@ -23,8 +23,8 @@ public class ReglementRestController {
 
     @PostMapping("/add-reglement")
     @ResponseBody
-    public Reglement addReglement(@RequestBody Reglement reglement) {
-        return reglementService.addReglement(reglement);
+    public Reglement addReglement(@RequestBody Reglement Newreglement) {
+        return reglementService.addReglement(Newreglement);
     }
     @GetMapping("/retrieve-all-reglements")
     @ResponseBody
