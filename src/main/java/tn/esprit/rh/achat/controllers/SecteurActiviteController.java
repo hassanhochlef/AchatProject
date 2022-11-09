@@ -31,8 +31,8 @@ public class SecteurActiviteController {
 
 	@PostMapping("/add-secteurActivite")
 	@ResponseBody
-	public SecteurActivite addSecteurActivite(@RequestBody SecteurActivite NewsecteurActivite) {
-		return secteurActiviteService.addUpdateSecteurActivite(NewsecteurActivite);
+	public SecteurActivite addSecteurActivite(@RequestBody SecteurActivite s) {
+		return secteurActiviteService.addUpdateSecteurActivite(s);
 	}
 
 	
@@ -44,8 +44,8 @@ public class SecteurActiviteController {
 
 	@PutMapping("/modify-secteurActivite")
 	@ResponseBody
-	public SecteurActivite modifySecteurActivite(@RequestBody SecteurActivite newSecteurActivite) {
-		return secteurActiviteService.addUpdateSecteurActivite(newSecteurActivite);
+	public SecteurActivite modifySecteurActivite(@RequestBody SecteurActivite sA) {
+		return secteurActiviteService.addUpdateSecteurActivite(sA);
 	}
 
 	

@@ -33,8 +33,8 @@ public class StockRestController {
 
 	@PostMapping("/add-stock")
 	@ResponseBody
-	public Stock addStock(@RequestBody Stock newStock) {
-		return stockService.addStock(newStock);
+	public Stock addStock(@RequestBody Stock sT) {
+		return stockService.addStock(sT);
 	}
 
 	
@@ -45,8 +45,8 @@ public class StockRestController {
 	}
 	@PutMapping("/modify-stock")
 	@ResponseBody
-	public Stock modifyStock(@RequestBody Stock newStock) {
-		return stockService.updateStock(newStock);
+	public Stock modifyStock(@RequestBody Stock s) {
+		return stockService.updateStock(s);
 	}
 
 

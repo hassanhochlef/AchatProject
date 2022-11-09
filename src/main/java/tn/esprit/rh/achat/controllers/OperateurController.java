@@ -50,8 +50,8 @@ public class OperateurController {
 
 	@PutMapping("/modify-operateur")
 	@ResponseBody
-	public Operateur modifyOperateur(@RequestBody Operateur newOperateur) {
-		return operateurService.addUpdateOperateur(newOperateur);
+	public Operateur modifyOperateur(@RequestBody Operateur o) {
+		return operateurService.addUpdateOperateur(o);
 	}
 
 	
