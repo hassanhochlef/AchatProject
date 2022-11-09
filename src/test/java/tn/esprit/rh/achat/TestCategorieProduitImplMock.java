@@ -39,7 +39,7 @@ import tn.esprit.rh.achat.services.CategorieProduitServiceImpl;
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
 @ExtendWith(MockitoExtension.class)
-class CategorieProduitImplMock {
+class TestCategorieProduitImplMock {
 @Mock
 CategorieProduitRepository categorieProduitRepository2;
 @InjectMocks
