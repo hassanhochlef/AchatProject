@@ -36,8 +36,8 @@ public class FactureRestController {
     
     @PostMapping("/add-facture")
     @ResponseBody
-    public Facture addFacture(@RequestBody Facture f) {
-       return factureService.addFacture(f);
+    public Facture addFacture(@RequestBody Facture facture) {
+       return factureService.addFacture(facture);
      
     }
 
