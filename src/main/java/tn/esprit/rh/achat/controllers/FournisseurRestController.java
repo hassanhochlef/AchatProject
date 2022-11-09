@@ -22,7 +22,7 @@ public class FournisseurRestController {
 	@ResponseBody
 	public List<Fournisseur> getFournisseurs() {
 		return fournisseurService.retrieveAllFournisseurs();
-		
+
 	}
 
 	@GetMapping("/retrieve-fournisseur/{fournisseur-id}")
@@ -35,10 +35,10 @@ public class FournisseurRestController {
 	@ResponseBody
 	public Fournisseur addFournisseur(@RequestBody Fournisseur f) {
 		return fournisseurService.addFournisseur(f);
-	
+
 	}
 
-	
+
 	@DeleteMapping("/remove-fournisseur/{fournisseur-id}")
 	@ResponseBody
 	public void removeFournisseur(@PathVariable("fournisseur-id") Long fournisseurId) {
@@ -52,10 +52,10 @@ public class FournisseurRestController {
 		return fournisseurService.updateFournisseur(fournisseur);
 	}
 
-	
-		@PutMapping(value = "/assignSecteurActiviteToFournisseur/{idSecteurActivite}/{idFournisseur}")
-		public void assignProduitToStock(@PathVariable("idSecteurActivite") Long idSecteurActivite, @PathVariable("idFournisseur") Long idFournisseur) {
-			fournisseurService.assignSecteurActiviteToFournisseur(idSecteurActivite, idFournisseur);
-		}
+
+	@PutMapping(value = "/assignSecteurActiviteToFournisseur/{idSecteurActivite}/{idFournisseur}")
+	public void assignProduitToStock(@PathVariable("idSecteurActivite") Long idSecteurActivite, @PathVariable("idFournisseur") Long idFournisseur) {
+		fournisseurService.assignSecteurActiviteToFournisseur(idSecteurActivite, idFournisseur);
+	}
 
 }
