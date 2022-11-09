@@ -33,8 +33,8 @@ public class FournisseurRestController {
 
 	@PostMapping("/add-fournisseur")
 	@ResponseBody
-	public Fournisseur addFournisseur(@RequestBody Fournisseur fournisseurAdd) {
-		return fournisseurService.addFournisseur(fournisseurAdd);
+	public Fournisseur addFournisseur(@RequestBody Fournisseur fournisseur) {
+		return fournisseurService.addFournisseur(fournisseur);
 	
 	}
 
@@ -48,8 +48,8 @@ public class FournisseurRestController {
 
 	@PutMapping("/modify-fournisseur")
 	@ResponseBody
-	public Fournisseur modifyFournisseur(@RequestBody Fournisseur fournisseurUpd) {
-		return fournisseurService.updateFournisseur(fournisseurUpd);
+	public Fournisseur modifyFournisseur(@RequestBody Fournisseur fournisseur) {
+		return fournisseurService.updateFournisseur(fournisseur);
 	}
 
 	
