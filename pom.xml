@@ -68,17 +68,14 @@
 
 
 
-
-	<distributionManagement>
-		<snapshotRepository>
-			<id>deploymentRepo</id>
-			<url>https://198.162.1.5:8081/content/repositories/snapshots</url>
-		</snapshotRepository>
+<distributionManagement>
 		<repository>
 			<id>deploymentRepo</id>
-			<url>https://192.168.1.5:8081/service/local/staging/deploy/maven2/</url>
+			<name>admin</name>
+			<url>http://198.162.1.5:8081/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
+	
 
 
 	<build>
