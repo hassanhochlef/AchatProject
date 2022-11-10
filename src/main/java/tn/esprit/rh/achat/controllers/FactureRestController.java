@@ -22,12 +22,11 @@ public class FactureRestController {
     @Autowired
     IFactureService factureService;
 
-
-
-    ModelMapper modelMapper;
     public FactureRestController(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
+
+    ModelMapper modelMapper;
 
     @GetMapping("/retrieve-all-factures")
     @ResponseBody
