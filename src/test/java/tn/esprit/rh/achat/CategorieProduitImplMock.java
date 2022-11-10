@@ -58,7 +58,7 @@ void TestAddCategorieProduit1() {
 	Set<Produit> prods = new HashSet<Produit>();
 	CategorieProduit cp = new CategorieProduit((long) 2,"codeCategorie","libelle",prods);
 	CategorieProduitDTO cpD = categorieProduitConverter.convertEntityToDto(cp);
-ctagorieProduitService.addorUpdateCategorieProduit(cpD);
+//ctagorieProduitService.addCategorieProduit(cpD);
 Assertions.assertNotNull(cp);
 }
 }

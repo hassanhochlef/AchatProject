@@ -18,9 +18,9 @@ public class OperateurServiceImpl implements IOperateurService {
 	}
 
 	@Override
-	public Operateur addUpdateOperateur(Operateur o) {
-		operateurRepository.save(o);
-		return o;
+	public Operateur addOperateur(Operateur op) {
+		operateurRepository.save(op);
+		return op;
 	}
 
 	@Override
@@ -29,7 +29,11 @@ public class OperateurServiceImpl implements IOperateurService {
 		
 	}
 
-
+	@Override
+	public Operateur updateOperateur(Operateur o) {
+		operateurRepository.save(o);
+		return o;
+	}
 
 	@Override
 	public Operateur retrieveOperateur(Long id) {

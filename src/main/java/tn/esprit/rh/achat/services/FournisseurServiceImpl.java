@@ -37,16 +37,16 @@ public class FournisseurServiceImpl implements IFournisseurService {
 	}
 
 
-	public Fournisseur addFournisseur(Fournisseur f) {
-		DetailFournisseur df= new DetailFournisseur();
-		df.setDateDebutCollaboration(new Date()); 
-	
+	public Fournisseur addFournisseur(Fournisseur f /*Master*/) {
+		DetailFournisseur df= new DetailFournisseur();//Slave
+		df.setDateDebutCollaboration(new Date()); //util
+		//On affecte le "Slave" au "Master"
 		f.setDetailFournisseur(df);	
 		fournisseurRepository.save(f);
 		return f;
 	}
 	
-	public DetailFournisseur  saveDetailFournisseur(Fournisseur f){
+	private DetailFournisseur  saveDetailFournisseur(Fournisseur f){
 		DetailFournisseur df = f.getDetailFournisseur();
 		detailFournisseurRepository.save(df);
 		return df;
@@ -67,7 +67,6 @@ public class FournisseurServiceImpl implements IFournisseurService {
 
 	@Override
 	public Fournisseur retrieveFournisseur(Long fournisseurId) {
-
 		return fournisseurRepository.findById(fournisseurId).orElse(null);
 	}
 
@@ -75,10 +74,10 @@ public class FournisseurServiceImpl implements IFournisseurService {
 	public void assignSecteurActiviteToFournisseur(Long idSecteurActivite, Long idFournisseur) {
 		Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);
 		SecteurActivite secteurActivite = secteurActiviteRepository.findById(idSecteurActivite).orElse(null);
-       if(fournisseur != null) { fournisseur.getSecteurActivites().add(secteurActivite);
-        fournisseurRepository.save(fournisseur);
-       }
-		
+		if(fournisseur != null) {
+			fournisseur.getSecteurActivites().add(secteurActivite);
+			fournisseurRepository.save(fournisseur);
+		}
 	}
 
 	

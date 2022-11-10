@@ -9,13 +9,13 @@ import javax.persistence.TemporalType;
 import java.util.Date;
 
 @Data
-public class ProduitDTO {
-    private Long idProduit;
-    private String codeProduit;
-    private String libelleProduit;
-    private float prix;
+public class FactureDTO {
+    private Long idFacture;
+    private float montantRemise;
+    private float montantFacture;
     @Temporal(TemporalType.DATE)
-    private Date dateCreation;
+    private Date dateCreationFacture;
     @Temporal(TemporalType.DATE)
-    private Date dateDerniereModification;
+    private Date dateDerniereModificationFacture;
+    private Boolean archivee;
 }

@@ -48,7 +48,7 @@ class SecteurServiceImplMockTest {
         SecteurActivite s2 = new SecteurActivite(null,"22222","INFORMATIQUE",null);
         s2.setIdSecteurActivite(2L);
 
-        SecteurService.addUpdateSecteurActivite(s2);
+        SecteurService.addSecteurActivite(s2);
         verify(SecteurRepository, times(1)).save(s2);
 
     }
