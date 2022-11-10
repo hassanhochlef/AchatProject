@@ -89,7 +89,7 @@
 <distributionManagement>
 		<repository>
 			<id>deploymentRepo</id>
-			 <name>Anonymous</name>
+			 <name>nx-admin</name>
 			<url>http://192.168.56.15:8081/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
