@@ -89,7 +89,7 @@
 <distributionManagement>
 		<repository>
 			<id>deploymentRepo</id>
-			 <username>admin</username>
+			 <name>admin</name>
       <password>sabri1998*</password>
 			<url>http://192.168.56.15:8081/repository/maven-releases/</url>
 		</repository>
