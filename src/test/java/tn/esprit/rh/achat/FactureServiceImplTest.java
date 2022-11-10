@@ -54,7 +54,7 @@ public class FactureServiceImplTest {
         Facture savedFacture= factureService.addFacture(f);
         factureService.cancelFacture(savedFacture.getIdFacture());
         assertEquals(true,savedFacture.getArchivee());
-    }*/
+    }
     @Test
     public void testRetrieveAllFactures() throws ParseException {
         List<Facture> factures =  factureService.retrieveAllFactures();
