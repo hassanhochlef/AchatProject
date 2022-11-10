@@ -1,10 +1,11 @@
 package tn.esprit.rh.achat;
 import static org.junit.Assert.*;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import org.junit.Test;
-
+import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,7 +16,8 @@ import java.text.ParseException;
 
 import lombok.extern.slf4j.Slf4j;
 import tn.esprit.rh.achat.entities.Facture;
-
+import tn.esprit.rh.achat.entities.Fournisseur;
+import tn.esprit.rh.achat.entities.Operateur;
 import tn.esprit.rh.achat.services.IFactureService;
 import tn.esprit.rh.achat.services.IFournisseurService;
 import tn.esprit.rh.achat.services.IOperateurService;
@@ -54,7 +56,7 @@ public class FactureServiceImplTest {
         Facture savedFacture= factureService.addFacture(f);
         factureService.cancelFacture(savedFacture.getIdFacture());
         assertEquals(true,savedFacture.getArchivee());
-    }
+    }*/
     @Test
     public void testRetrieveAllFactures() throws ParseException {
         List<Facture> factures =  factureService.retrieveAllFactures();
@@ -72,5 +74,38 @@ public class FactureServiceImplTest {
         Assertions.assertEquals(20f,savedFactrure.getMontantRemise());
         assertEquals(new Date(10 / 10 / 2022),savedFactrure.getDateCreationFacture());
         log.info("get ===>" + factureService.toString());
-    }*/
+    }
+	/*@Test
+	public void testgetFacturesByFournisseur() throws ParseException  {
+		Facture f = new Facture(20f,200f, new Date(10 / 10 / 2020),new Date(10 / 10 / 2022), true);
+		Facture savedFactrure= factureService.addFacture(f);
+		Set<Facture> f1  = new HashSet<Facture>();
+		f1.add(savedFactrure);
+     	Fournisseur fournisseur = new Fournisseur(1L,"112","aaa");
+		Fournisseur savedFournisseur= fournisseurService.addFournisseur(fournisseur);
+		List<Facture> factures = factureService.getFacturesByFournisseur(1L);
+		log.info(" count" +  factures.size());
+		assertNotNull(factures);
+		for (Facture facture : factures) {
+		log.info(" facture: " + facture.getMontantFacture()+ " né le "+facture.getMontantRemise());
+		}
+	}
+	@Test
+	public void testassignOperateurToFacture() throws ParseException{
+		Facture f = new Facture(1L,20f,200f, new Date(10 / 10 / 2020),new Date(10 / 10 / 2022), true);
+		Operateur o = new Operateur(1L,"chaima","yahyaoui","123");
+		Facture savedFactrure= factureService.addFacture(f);
+		Operateur operateurSaved =  operateurService.addOperateur(o);
+		factureService.assignOperateurToFacture(1L,1L);
+		List <Facture> factures = (List<Facture>) operateurSaved.getFactures();
+		assertNotNull(factures);
+	}
+	 @Test
+		public void  pourcentageRecouvrement() throws ParseException{
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+			Date startDate = dateFormat.parse("30/09/2000");
+			Date endDate = dateFormat.parse("30/09/2001");
+			factureService.pourcentageRecouvrement(startDate, endDate);
+		}*/
+
 }
