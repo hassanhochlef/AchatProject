@@ -9,11 +9,10 @@ public interface IProduitService {
 
 	List<Produit> retrieveAllProduits();
 
-	ProduitDTO addProduit(ProduitDTO p);
+	ProduitDTO addUpdateProduit(ProduitDTO p);
 
 	void deleteProduit(Long id);
 
-	ProduitDTO updateProduit(ProduitDTO p);
 
 	ProduitDTO retrieveProduit(Long id);
 

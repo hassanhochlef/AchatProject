@@ -36,8 +36,8 @@ public class ProduitServiceImpl implements IProduitService {
 		return produits;
 	}
 
-	@Transactional
-	public ProduitDTO addProduit(ProduitDTO p) {
+	@Override
+	public ProduitDTO addUpdateProduit(ProduitDTO p) {
 		Produit pe = produitConverter.convertDtoToEntity(p);
 		produitRepository.save(pe);
 		return p;
@@ -50,12 +50,8 @@ public class ProduitServiceImpl implements IProduitService {
 		produitRepository.deleteById(produitId);
 	}
 
-	@Override
-	public ProduitDTO updateProduit(ProduitDTO p) {
-		Produit pe = produitConverter.convertDtoToEntity(p);
-		produitRepository.save(pe);
-		return p;
-	}
+
+
 
 	@Override
 	public ProduitDTO retrieveProduit(Long produitId) {

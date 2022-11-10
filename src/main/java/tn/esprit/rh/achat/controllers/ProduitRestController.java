@@ -13,7 +13,6 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin("*")
 @Api(tags = "Gestion des produits")
 @RequestMapping("/produit")
 public class ProduitRestController {
@@ -40,7 +39,7 @@ public class ProduitRestController {
 	@PostMapping("/add-produit")
 	@ResponseBody
 	public ProduitDTO addProduit(@RequestBody ProduitDTO p) {
-		return  produitService.addProduit(p);
+		return  produitService.addUpdateProduit(p);
 	}
 
 	
@@ -54,7 +53,7 @@ public class ProduitRestController {
 	@PutMapping("/modify-produit")
 	@ResponseBody
 	public ProduitDTO modifyProduit(@RequestBody ProduitDTO p) {
-		return produitService.updateProduit(p);
+		return produitService.addUpdateProduit(p);
 	}
 
 	@PutMapping(value = "/assignProduitToStock/{idProduit}/{idStock}")
