@@ -69,13 +69,7 @@
     <artifactId>mockito-core</artifactId>
 </dependency>
 	</dependencies>
-<distributionManagement>
-		<repository>
-			<id>deploymentRepo</id>
-			<name>admin</name>
-			<url>http://192.168.56.15:8081/repository/maven-releases/</url>
-		</repository>
-	</distributionManagement>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -92,5 +86,12 @@
 			</plugin>
 		</plugins>
 	</build>
-
+<distributionManagement>
+		<repository>
+			<id>deploymentRepo</id>
+			 <username>admin</username>
+      <password>sabri1998*</password>
+			<url>http://192.168.56.15:8081/repository/maven-releases/</url>
+		</repository>
+	</distributionManagement>
 </project>
