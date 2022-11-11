@@ -1,11 +1,7 @@
 package tn.esprit.rh.achat.services;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import tn.esprit.rh.achat.controllers.converter.CategorieProduitConverter;
-import tn.esprit.rh.achat.controllers.dto.CategorieProduitDTO;
 import tn.esprit.rh.achat.entities.CategorieProduit;
 import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
 
@@ -14,36 +10,34 @@ import java.util.List;
 @Service
 public class CategorieProduitServiceImpl implements ICategorieProduitService {
 
-	
-	@Autowired
-	CategorieProduitConverter categorieProduitConverter;
+
 	@Autowired
 	CategorieProduitRepository categorieProduitRepository;
+
 	@Override
 	public List<CategorieProduit> retrieveAllCategorieProduits() {
 		return categorieProduitRepository.findAll();
-		
 	}
 
 	@Override
-	public CategorieProduitDTO addorUpdateCategorieProduit(CategorieProduitDTO cpdto) {
-		CategorieProduit cp = categorieProduitConverter.convertDtoToEntity(cpdto);
-		cp = categorieProduitRepository.save(cp);
-		return categorieProduitConverter.convertEntityToDto(cp);
+	public CategorieProduit addCategorieProduit(CategorieProduit cp) {
+		return  categorieProduitRepository.save(cp);
 	}
 
 	@Override
 	public void deleteCategorieProduit(Long id) {
 		categorieProduitRepository.deleteById(id);
-		
-	}
 
-	
+	}
 
 	@Override
-	public CategorieProduitDTO retrieveCategorieProduit(Long id) {
-		CategorieProduit c = categorieProduitRepository.findById(id).orElse(null);
-		return categorieProduitConverter.convertEntityToDto(c);
+	public CategorieProduit updateCategorieProduit(CategorieProduit cp) {
+		categorieProduitRepository.save(cp);
+		return cp;
 	}
 
+	@Override
+	public CategorieProduit retrieveCategorieProduit(Long id) {
+		return categorieProduitRepository.findById(id).orElse(null);
+	}
 }

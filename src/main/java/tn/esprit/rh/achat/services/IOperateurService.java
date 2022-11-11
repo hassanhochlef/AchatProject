@@ -9,9 +9,11 @@ public interface IOperateurService {
 
 	List<Operateur> retrieveAllOperateurs();
 
+	Operateur addOperateur(Operateur o);
+
 	void deleteOperateur(Long id);
 
-	Operateur addUpdateOperateur(Operateur o);
+	Operateur updateOperateur(Operateur o);
 
 	Operateur retrieveOperateur(Long id);
 

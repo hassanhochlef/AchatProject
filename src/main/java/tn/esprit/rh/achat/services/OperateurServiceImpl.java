@@ -10,6 +10,7 @@ import java.util.List;
 @Service
 public class OperateurServiceImpl implements IOperateurService {
 
+
 	@Autowired
 	OperateurRepository operateurRepository;
 	@Override
@@ -18,22 +19,25 @@ public class OperateurServiceImpl implements IOperateurService {
 	}
 
 	@Override
-	public Operateur addUpdateOperateur(Operateur o) {
-		operateurRepository.save(o);
-		return o;
+	public Operateur addOperateur(Operateur op) {
+		operateurRepository.save(op);
+		return op;
 	}
 
 	@Override
 	public void deleteOperateur(Long id) {
 		operateurRepository.deleteById(id);
-		
+
 	}
 
-
+	@Override
+	public Operateur updateOperateur(Operateur o) {
+		operateurRepository.save(o);
+		return o;
+	}
 
 	@Override
 	public Operateur retrieveOperateur(Long id) {
 		return operateurRepository.findById(id).orElse(null);
 	}
-
 }

@@ -23,7 +23,7 @@ public class ReglementServiceImpl implements IReglementService {
 
 	@Override
 	public Reglement addReglement(Reglement r) {
-        reglementRepository.save(r);
+		reglementRepository.save(r);
 		return r;
 	}
 
@@ -35,7 +35,6 @@ public class ReglementServiceImpl implements IReglementService {
 	@Override
 	public List<Reglement> retrieveReglementByFacture(Long idFacture) {
 		return reglementRepository.retrieveReglementByFacture(idFacture);
-
 	}
 
 	@Override

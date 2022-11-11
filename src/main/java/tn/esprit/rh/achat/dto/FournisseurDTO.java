@@ -1,4 +1,4 @@
-package tn.esprit.rh.achat.controllers.dto;
+package tn.esprit.rh.achat.dto;
 
 import lombok.Data;
 import tn.esprit.rh.achat.entities.CategorieFournisseur;

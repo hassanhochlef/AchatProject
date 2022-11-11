@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.rh.achat.entities.*;
 import tn.esprit.rh.achat.repositories.*;
-import tn.esprit.rh.achat.controllers.converter.*;
 
 import javax.transaction.Transactional;
 import java.util.Date;
@@ -16,7 +15,6 @@ import java.util.Set;
 @Slf4j
 @Transactional
 public class FactureServiceImpl implements IFactureService {
-
 	@Autowired
 	FactureRepository factureRepository;
 	@Autowired
@@ -108,6 +106,6 @@ public class FactureServiceImpl implements IFactureService {
 		float totalRecouvrementEntreDeuxDates =reglementService.getChiffreAffaireEntreDeuxDate(startDate,endDate);
 		return (totalRecouvrementEntreDeuxDates/totalFacturesEntreDeuxDates)*100;
 	}
-
+	
 
 }

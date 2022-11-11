@@ -35,8 +35,8 @@ public class FactureServiceImplTest {
     IFournisseurService fournisseurService;
 
 
-/*
-    @Test
+
+   @Test
     public void testAddFacture () throws  ParseException  {
         Facture f = new Facture(20f,200f, new Date(10 / 10 / 2020),new Date(10 / 10 / 2022), true);
         Facture savedFactrure= factureService.addFacture(f);
@@ -50,31 +50,31 @@ public class FactureServiceImplTest {
 
     }
 
-    @Test
+	@Test
     public void testCancelFacture() throws  ParseException  {
-        Facture f = new Facture(20f,200f, new Date(10 / 10 / 2020),new Date(10 / 10 / 2022), true);
-        Facture savedFacture= factureService.addFacture(f);
-        factureService.cancelFacture(savedFacture.getIdFacture());
-        assertEquals(true,savedFacture.getArchivee());
-    }*/
-    @Test
-    public void testRetrieveAllFactures() throws ParseException {
-        List<Facture> factures =  factureService.retrieveAllFactures();
-        int expected =factures.size();
-        Facture f = new Facture(20f,200f, new Date(10 / 10 / 2020),new Date(10 / 10 / 2022), true);
-        Facture savedFactrure= factureService.addFacture(f);
-        assertEquals(expected + 1,factureService.retrieveAllFactures().size());
-        factureService.cancelFacture(savedFactrure.getIdFacture());
-    }/*
-    @Test
-    public void testRetrieveFacturesById() throws ParseException {
-        Facture f = new Facture(20f,200f, new Date(10 / 10 / 2020),new Date(10 / 10 / 2022), true);
-        Facture savedFactrure= factureService.addFacture(f);
-        Assertions.assertEquals(200f, savedFactrure.getMontantFacture());
-        Assertions.assertEquals(20f,savedFactrure.getMontantRemise());
-        assertEquals(new Date(10 / 10 / 2022),savedFactrure.getDateCreationFacture());
-        log.info("get ===>" + factureService.toString());
-    }
+		Facture f = new Facture(20f,200f, new Date(10 / 10 / 2020),new Date(10 / 10 / 2022), true);
+		Facture savedFacture= factureService.addFacture(f);
+		factureService.cancelFacture(savedFacture.getIdFacture());
+	    assertEquals(true,savedFacture.getArchivee());
+     }
+	@Test
+	public void testRetrieveAllFactures() throws ParseException {
+		List<Facture> factures =  factureService.retrieveAllFactures();
+		int expected =factures.size();
+		Facture f = new Facture(20f,200f, new Date(10 / 10 / 2020),new Date(10 / 10 / 2022), true);
+		Facture savedFactrure= factureService.addFacture(f);
+		assertEquals(expected + 1,factureService.retrieveAllFactures().size());
+		factureService.cancelFacture(savedFactrure.getIdFacture());
+	}
+		@Test
+		public void testRetrieveFacturesById() throws ParseException {
+			Facture f = new Facture(20f,200f, new Date(10 / 10 / 2020),new Date(10 / 10 / 2022), true);
+			Facture savedFactrure= factureService.addFacture(f);
+			Assertions.assertEquals(200f, savedFactrure.getMontantFacture());
+			Assertions.assertEquals(20f,savedFactrure.getMontantRemise());
+			assertEquals(new Date(10 / 10 / 2022),savedFactrure.getDateCreationFacture());
+			log.info("get ===>" + factureService.toString());
+	}
 	/*@Test
 	public void testgetFacturesByFournisseur() throws ParseException  {
 		Facture f = new Facture(20f,200f, new Date(10 / 10 / 2020),new Date(10 / 10 / 2022), true);
@@ -90,6 +90,7 @@ public class FactureServiceImplTest {
 		log.info(" facture: " + facture.getMontantFacture()+ " né le "+facture.getMontantRemise());
 		}
 	}
+
 	@Test
 	public void testassignOperateurToFacture() throws ParseException{
 		Facture f = new Facture(1L,20f,200f, new Date(10 / 10 / 2020),new Date(10 / 10 / 2022), true);
@@ -100,6 +101,7 @@ public class FactureServiceImplTest {
 		List <Facture> factures = (List<Facture>) operateurSaved.getFactures();
 		assertNotNull(factures);
 	}
+
 	 @Test
 		public void  pourcentageRecouvrement() throws ParseException{
 			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");

@@ -5,8 +5,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
-
-import tn.esprit.rh.achat.controllers.dto.FactureDTO;
+import tn.esprit.rh.achat.dto.FactureDTO;
 import tn.esprit.rh.achat.entities.Facture;
 import tn.esprit.rh.achat.services.IFactureService;
 
@@ -21,12 +20,8 @@ public class FactureRestController {
 
     @Autowired
     IFactureService factureService;
-
-    public FactureRestController(ModelMapper modelMapper) {
-        this.modelMapper = modelMapper;
-    }
-
-    ModelMapper modelMapper;
+    @Autowired
+    private ModelMapper modelMapper;
 
     @GetMapping("/retrieve-all-factures")
     @ResponseBody

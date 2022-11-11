@@ -15,8 +15,9 @@ public interface IFactureService {
 	void cancelFacture(Long id);
 
 	Facture retrieveFacture(Long id);
-
+	
 	void assignOperateurToFacture(Long idOperateur, Long idFacture);
 
 	float pourcentageRecouvrement(Date startDate, Date endDate);
+
 }
